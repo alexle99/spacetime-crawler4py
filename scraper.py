@@ -5,6 +5,7 @@ def scraper(url, resp):
     links = extract_next_links(url, resp)
     return [link for link in links if is_valid(link)]
 
+
 def extract_next_links(url, resp):
     # Implementation required.
     # url: the URL that was used to get the page
