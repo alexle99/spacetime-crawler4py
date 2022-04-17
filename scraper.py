@@ -17,10 +17,11 @@ def scraper(url, resp):
 # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
 def extract_next_links(url, resp):
     from bs4 import BeautifulSoup, SoupStrainer
-    for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a')):
+    for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
         if link.has_attr('href'):
             t = link['href']
-            print(t, is_valid(t))
+            is_valid(t)
+            # print(t, is_valid(t))
     return list()
 
 def is_valid(url):
@@ -28,10 +29,15 @@ def is_valid(url):
     # If you decide to crawl it, return True; otherwise return False.
     # There are already some conditions that return False.
     try:
+        result = re.match(r"(.*\.ics.uci.edu/.*|.*\.cs.uci.edu/.*|.*\.informatics.uci.edu/.*|.*\.stat.uci.edu/.*|today.uci.edu/department/information_computer_sciences/.*)$", url)
+        if (not result):
+            return False
+
         parsed = urlparse(url)
         if parsed.scheme not in set(["http", "https"]):
             return False
-        return not re.match(
+
+        result = not re.match(
             r".*\.(css|js|bmp|gif|jpe?g|ico"
             + r"|png|tiff?|mid|mp2|mp3|mp4"
             + r"|wav|avi|mov|mpeg|ram|m4v|mkv|ogg|ogv|pdf"
@@ -40,6 +46,11 @@ def is_valid(url):
             + r"|epub|dll|cnf|tgz|sha1"
             + r"|thmx|mso|arff|rtf|jar|csv"
             + r"|rm|smil|wmv|swf|wma|zip|rar|gz)$", parsed.path.lower())
+
+        if (not result):
+            return False
+        print(f"VALID URL: {url}")
+        return True
 
     except TypeError:
         print ("TypeError for ", parsed)
