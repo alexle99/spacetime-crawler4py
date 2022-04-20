@@ -1,0 +1,45 @@
+IR US22 22558269, 11234388, 18183195, 88255446 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Scheme: https & Netloc: www.stat.uci.edu & Path: / & Params: 
+Scheme:  & Netloc:  & Path:  & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /chairs-message/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /what-is-statistics/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /contact-the-department/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /tutoring-resources/ & Params: 
+Scheme:  & Netloc:  & Path:  & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+Scheme:  & Netloc:  & Path:  & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+Scheme: https & Netloc: mds.ics.uci.edu & Path: / & Params: 
+Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /grad-student-directory/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /statistics-internships-employment-opportunities/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /employers-of-statistics-grad-students/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/b-s-in-data-science/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /minor-in-statistics/ & Params: 
+Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+Scheme: http & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /seminar-series/ & Params: 
+Scheme: https & Netloc: statconsulting.ics.uci.edu & Path: / & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/uci-launches-new-professional-program-master-of-data-science/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/uci-launches-new-professional-program-master-of-data-science/ & Params: 
+Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /wp-content/uploads/PeterMuellerAbstract_10-21-21.pdf & Params: 
+Scheme: https & Netloc: uci.zoom.us & Path: /j/91270309976 & Params: 
+Scheme:  & Netloc:  & Path: /seminar-series/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /stephan-mandt-and-collaborators-receive-3-5-million-to-study-machine-learning-for-climate-science/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /harnessing-the-data-revolution-ics-researchers-and-collaborators-receive-1-5m-data-science-grant/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /lifetime-achievement-and-dinsdale-awards-double-the-accolades-for-professor-emerita-jessica-utts/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /uci-news-uci-led-study-finds-disparities-in-o-c-rates-of-covid-19-infection-mortality-vladimir-minin-mentioned/ & Params: 
+Scheme: https & Netloc: www.stat.uci.edu & Path: /from-theory-to-practice-ucis-machine-learning-hackathon-delivers/ & Params: 
+Scheme:  & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
+Scheme: https & Netloc: www.ics.uci.edu & Path: / & Params: 
+Scheme: mailto & Netloc:  & Path: communications@ics.uci.edu & Params: 
+Scheme: https & Netloc: uci.edu & Path: /privacy/ & Params: 

@@ -1,8 +1,13 @@
 import re
+import sys, time
+#import tokenizer
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup, SoupStrainer
 from urllib.parse import urldefrag
 
+prevous_url = ""
+previous_tokens = list()
+token_counter = 0
 
 def scraper(url, resp):
     #print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
@@ -25,28 +30,57 @@ def extract_next_links(url, resp):
     Status responses:
     https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
 
+
+
+    pip install simhash
+    https://leons.im/posts/a-python-implementation-of-simhash-algorithm/
+
+
+
+    <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
+
+    LET all_urls_so_far be a set
+    if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
+        add current url to set
+
     """
+
     result = list()
     visited = defaultdict(int)
     THRESHOLD = 3
 
-    # print("Entering extraction")
-       
     #check if response is not 2XX (invalid)
     if resp.status not in range(200, 300): 
         return result
+
+
         
     if (resp.raw_response):
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
+
+            print('', end='')
+            sys.stdout.flush()
+            time.sleep(0.1)
+
             if link.has_attr('href'):
                 t = link['href']
-                # print("Type is ", type(t))
                 unfragmented = urldefrag(t)[0]
+                # <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
                 parsed = urlparse(unfragmented)
+
+
                 if visited[(parsed.netloc, parsed.path)] < THRESHOLD:
                     visited[(parsed.netloc, parsed.path)] += 1
+                    print(f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
                     result.append(unfragmented)
+
     return result
+
+
+def dynamic_trap():
+
+
+    return
 
 def is_valid(url):
     # Decide whether to crawl this url or not. 
@@ -74,6 +108,8 @@ def is_valid(url):
             + r"|epub|dll|cnf|tgz|sha1"
             + r"|thmx|mso|arff|rtf|jar|csv"
             + r"|rm|smil|wmv|swf|wma|zip|rar|gz)$", parsed.path.lower())
+
+        
 
         return result
 
