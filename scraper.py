@@ -53,6 +53,16 @@ def extract_next_links(url, resp):
     if resp.status not in range(200, 300): 
         return result
 
+    # check to make sure the site has good content
+    # check if site is too big
+    # check if site lacks valuable information
+    # check if site is similar to prevous url
+
+    # additional requirements
+    # keep track of how many unique urls we go through
+    # What is the longest page in terms of the number of words? HTML markup doesn't count
+
+
 
         
     if (resp.raw_response):
@@ -108,8 +118,6 @@ def is_valid(url):
             + r"|epub|dll|cnf|tgz|sha1"
             + r"|thmx|mso|arff|rtf|jar|csv"
             + r"|rm|smil|wmv|swf|wma|zip|rar|gz)$", parsed.path.lower())
-
-        
 
         return result
 
