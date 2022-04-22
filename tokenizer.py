@@ -1,55 +1,47 @@
-import re
-import nltk
-import sys, time
+from bs4 import BeautifulSoup
+from urllib import request
 
 
-'''
-
-"Natural language processing is an exciting area."
-
-print(sent_tokenize(text))
-# output: ['Natural language processing is an exciting area.', 'Huge budget have been allocated for this.']
-
-print(word_tokenize(text))
-# output: ['Natural', 'language', 'processing', 'is', 'an', 'exciting', 'area', '.', 'Huge', 'budget', 'have', 'been', 'allocated', 'for', 'this', '.']
+def get_content(url):
+    response = request.urlopen(url)
+    html = response.read().decode('utf-8')
+    content = BeautifulSoup(html, "lxml").get_text()
+    return content
 
 
-print(stopwords.words("english"))
-
-
-https://www.analyticsvidhya.com/blog/2021/07/nltk-a-beginners-hands-on-guide-to-natural-language-processing/
-
-'''
-
-def tokenize(html):
-    print(type(str(html)))
-    print(str(html))
-    t_list = list()
-    #textFile = open(textFilePath, 'r')
-    new_list = str(html).split("\n")
-    for line in new_list:
-        t_list += [w.lower() for w in re.findall(r'[a-zA-Z0-9]+', line)]
-        print("\n\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n\n\n\n")
-    #textFile.close()
-    return t_list
-
-def computeWordFrequencies(tokenList):
-    t_dict = dict()
-    for token in tokenList:
-        if token in t_dict:
-            t_dict[token] += 1
-        else:
-            t_dict[token] = 1
-    return t_dict
-    
-def printFrequencies(tokenDict):
-    for w in sorted(tokenDict, key=lambda t: (-tokenDict[t], t)):
-        print(f"{w} -> {tokenDict[w]}")
-
-def tokenization(textFilePath):
-    tl = tokenize(textFilePath)
-    return computeWordFrequencies(tl)
-
-def intersection(tDict1, tDict2):
-    commonTokens = set(tDict1).intersection(set(tDict2))
-    return len(commonTokens)
+# This function will tokenize the given words from the given text file
+# as the text file is passed as a path. The path will be either absolute
+# or relative. If the given argument is not an existing path, then an error
+# will be raised and the program will terminate. We will iterate over the entire
+# file line by line instead of reading the entire file all at once in order to
+# prevent any program crashes from memory issues. As we grab one line, we iterate
+# over that specific line to grab character by character, we "replace" any illegal
+# characters with a space, but the way the algorithm works is we are building the same
+# line to only include legal characters, e.g., "wate##r 000___     S&&" will end up
+# being "stripped" of its illegal characters and become "wate r 000 S", reducing
+# what our original line was, after doing so we can split based on whitespace as
+# assuming the algorithm works as it should, tokens will be separated by one whitespace.
+def tokenize(TextFile):
+    finList = []
+    matchString = "abcdefghijklmnopqrstuvwxyzABCDEDFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    with open(TextFile, "r") as f:
+        lineStr = True
+        iterations = 0
+        while lineStr:
+            lineStr = f.readline()
+            finStr = ""
+            index = 0
+            for chars in lineStr:
+                if not(chars in matchString):
+                    chars = ' '
+                    if index and finStr and finStr[index-1] == ' ':
+                        chars = ''
+                        index -= 1
+                finStr += chars
+                index += 1
+            if finStr:
+                for strings in finStr.split():
+                    finList.append(strings.lower())
+            iterations += 1
+        print("Number of iterations: ", iterations)
+    return finList

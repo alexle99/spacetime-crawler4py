@@ -1,16 +1,32 @@
+from collections import defaultdict
 import re
-import sys, time
-#import tokenizer
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup, SoupStrainer
 from urllib.parse import urldefrag
+from tokenizer_split import tokenize
+import ssimhash
+""" 
+DECISIONS & DOCUMENTATION:
 
-prevous_url = ""
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/#parser-installation
+- using LXML because faster and C dependend 
+
+pip3 install simhash
+https://leons.im/posts/a-python-implementation-of-simhash-algorithm/
+
+<scheme>://<netloc>/<path>;<params>?<query>#<fragment>
+
+LET all_urls_so_far be a set
+if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
+    add current url to set
+
+"""
+previous_content = ""
 previous_tokens = list()
+
 token_counter = 0
 
 def scraper(url, resp):
-    #print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     links = extract_next_links(url, resp)
     return [link for link in links if is_valid(link)]
 
@@ -25,27 +41,9 @@ def scraper(url, resp):
 #         resp.raw_response.content: the content of the page!
 # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
 def extract_next_links(url, resp):
-    from collections import defaultdict
-    """
-    Status responses:
-    https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-
-
-
-    pip install simhash
-    https://leons.im/posts/a-python-implementation-of-simhash-algorithm/
-
-
-
-    <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
-
-    LET all_urls_so_far be a set
-    if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
-        add current url to set
-
-    """
-
-    result = list()
+    global visited
+    global previous_content
+    result = [url]
     visited = defaultdict(int)
     THRESHOLD = 3
 
@@ -61,36 +59,45 @@ def extract_next_links(url, resp):
     # additional requirements
     # keep track of how many unique urls we go through
     # What is the longest page in terms of the number of words? HTML markup doesn't count
+    
 
-
-
-        
     if (resp.raw_response):
+        content = BeautifulSoup(resp.raw_response.content, "lxml").get_text()
+        token_list = tokenize(content)
+        print(len(token_list))
+
+
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
-
-            print('', end='')
-            sys.stdout.flush()
-            time.sleep(0.1)
-
             if link.has_attr('href'):
                 t = link['href']
                 unfragmented = urldefrag(t)[0]
                 # <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
                 parsed = urlparse(unfragmented)
-
-
-                if visited[(parsed.netloc, parsed.path)] < THRESHOLD:
-                    visited[(parsed.netloc, parsed.path)] += 1
-                    print(f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
-                    result.append(unfragmented)
+                
+                # This compares the current URL to a previous URL based on their
+                # netloc & path, in which a dynamic trap will differ solely on their
+                # params...
+                
+                if (previous_content):
+                    
+                    hash1 = ssimhash.simhash(tokenize(content))
+                    hash2 = ssimhash.simhash(tokenize(previous_content))
+                    if (visited[(parsed.netloc, parsed.path)] < THRESHOLD) and (hash1.similarity(hash2) < .98):
+                        visited[(parsed.netloc, parsed.path)] += 1
+                        print(f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
+                        print(f"ADDING {parsed.path}")
+                        result.append(unfragmented)
+                else:
+                    pass
+            previous_content = content
 
     return result
 
 
-def dynamic_trap():
+# def dynamic_trap():
 
 
-    return
+#     return
 
 def is_valid(url):
     # Decide whether to crawl this url or not. 
