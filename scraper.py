@@ -21,7 +21,7 @@ if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
     add current url to set
 
 """
-previous_content = ""
+#previous_content = ""
 previous_tokens = list()
 
 token_counter = 0
@@ -40,13 +40,14 @@ def scraper(url, resp):
 #         resp.raw_response.url: the url, again
 #         resp.raw_response.content: the content of the page!
 # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
-def extract_next_links(url, resp):
+def extract_next_links(url, resp): 
     global visited
-    global previous_content
+    # put url 
     result = [url]
     visited = defaultdict(int)
     THRESHOLD = 3
-
+    previous_hash = ssimhash.simhash("")
+    hash1 = previous_hash
     #check if response is not 2XX (invalid)
     if resp.status not in range(200, 300): 
         return result
@@ -64,7 +65,7 @@ def extract_next_links(url, resp):
     if (resp.raw_response):
         content = BeautifulSoup(resp.raw_response.content, "lxml").get_text()
         token_list = tokenize(content)
-        print(len(token_list))
+        print("extract_next_links is CALLED", len(token_list))
 
 
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
@@ -77,19 +78,19 @@ def extract_next_links(url, resp):
                 # This compares the current URL to a previous URL based on their
                 # netloc & path, in which a dynamic trap will differ solely on their
                 # params...
-                
-                if (previous_content):
-                    
-                    hash1 = ssimhash.simhash(tokenize(content))
-                    hash2 = ssimhash.simhash(tokenize(previous_content))
-                    if (visited[(parsed.netloc, parsed.path)] < THRESHOLD) and (hash1.similarity(hash2) < .98):
-                        visited[(parsed.netloc, parsed.path)] += 1
-                        print(f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
-                        print(f"ADDING {parsed.path}")
+                if parsed.netloc and parsed.path:
+                    if f"{parsed.netloc}{parsed.path}" not in visited and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
+                        visited[f"{parsed.netloc}{parsed.path}"] += 1
+                        print('@@@@@@@@@@@', f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
                         result.append(unfragmented)
-                else:
-                    pass
-            previous_content = content
+                    else:
+                        hash1 = ssimhash.simhash(tokenize(content))
+                        if (hash1.similarity(previous_hash) < .9) and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
+                            visited[f"{parsed.netloc}{parsed.path}"] += 1
+                            print('############', f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
+                            result.append(unfragmented)
+                
+            previous_hash = hash1
 
     return result
 

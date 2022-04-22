@@ -1,45 +1,145 @@
 IR US22 22558269, 11234388, 18183195, 88255446 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Scheme: https & Netloc: www.stat.uci.edu & Path: / & Params: 
-Scheme:  & Netloc:  & Path:  & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /chairs-message/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /what-is-statistics/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /contact-the-department/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /tutoring-resources/ & Params: 
-Scheme:  & Netloc:  & Path:  & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
-Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
-Scheme:  & Netloc:  & Path:  & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
-Scheme: https & Netloc: mds.ics.uci.edu & Path: / & Params: 
-Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /grad-student-directory/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /statistics-internships-employment-opportunities/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /employers-of-statistics-grad-students/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/b-s-in-data-science/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /minor-in-statistics/ & Params: 
-Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
-Scheme: http & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /seminar-series/ & Params: 
-Scheme: https & Netloc: statconsulting.ics.uci.edu & Path: / & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/uci-launches-new-professional-program-master-of-data-science/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/uci-launches-new-professional-program-master-of-data-science/ & Params: 
-Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /wp-content/uploads/PeterMuellerAbstract_10-21-21.pdf & Params: 
-Scheme: https & Netloc: uci.zoom.us & Path: /j/91270309976 & Params: 
-Scheme:  & Netloc:  & Path: /seminar-series/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /stephan-mandt-and-collaborators-receive-3-5-million-to-study-machine-learning-for-climate-science/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /harnessing-the-data-revolution-ics-researchers-and-collaborators-receive-1-5m-data-science-grant/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /lifetime-achievement-and-dinsdale-awards-double-the-accolades-for-professor-emerita-jessica-utts/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /uci-news-uci-led-study-finds-disparities-in-o-c-rates-of-covid-19-infection-mortality-vladimir-minin-mentioned/ & Params: 
-Scheme: https & Netloc: www.stat.uci.edu & Path: /from-theory-to-practice-ucis-machine-learning-hackathon-delivers/ & Params: 
-Scheme:  & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
-Scheme: https & Netloc: www.ics.uci.edu & Path: / & Params: 
-Scheme: mailto & Netloc:  & Path: communications@ics.uci.edu & Params: 
-Scheme: https & Netloc: uci.edu & Path: /privacy/ & Params: 
+extract_next_links is CALLED 357
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /chairs-message/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /what-is-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /contact-the-department/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /tutoring-resources/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: mds.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /grad-student-directory/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /statistics-internships-employment-opportunities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /employers-of-statistics-grad-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/b-s-in-data-science/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /minor-in-statistics/ & Params: 
+############ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /seminar-series/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: statconsulting.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/uci-launches-new-professional-program-master-of-data-science/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /wp-content/uploads/Katherine-Heller-Abstract-4-14-22.pdf & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /dr-joni-ricks-oddie-applies-data-driven-lens-in-run-for-long-beach-city-council/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /applications-open-for-new-uci-summer-biostatistics-institute-for-undergraduate-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /ics-graduate-programs-in-statistics-and-computer-science-among-top-20-for-public-universities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /mds-student-ty-shao-aims-to-make-an-impact-in-healthcare/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /culture-of-collaboration-leads-to-cutting-edge-work-in-ai/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: uci.edu & Path: /privacy/ & Params: 
+extract_next_links is CALLED 976
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /chairs-message/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /what-is-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /contact-the-department/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /tutoring-resources/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: mds.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /grad-student-directory/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /statistics-internships-employment-opportunities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /employers-of-statistics-grad-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/b-s-in-data-science/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /minor-in-statistics/ & Params: 
+############ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /seminar-series/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: statconsulting.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: /community/news/view_news & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: /~smyth/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.cs.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: steyvers.socsci.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.qualcomm.com & Path: /research/university-relations & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.nsf.gov & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.nsf.gov & Path: /awardsearch/showAward & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.pnas.org & Path: /doi/full/10.1073/pnas.2111547119 & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: gavinkerrigan.github.io & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: /hpi/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: proceedings.neurips.cc & Path: /paper/2021/hash/234b941e88b755b7a72a1c1dd5022f30-Abstract.html & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.linkedin.com & Path: /in/disi-ji-324802a2/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: ojs.aaai.org & Path: /index.php/AAAI/article/view/16968 & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.linkedin.com & Path: /in/markellekelly/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: create.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: ucinoyce.org & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /uci-news-ucis-graduate-programs-shine-in-u-s-news-world-report-rankings/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /mds-student-ty-shao-aims-to-make-an-impact-in-healthcare/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /dr-joni-ricks-oddie-applies-data-driven-lens-in-run-for-long-beach-city-council/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /applications-open-for-new-uci-summer-biostatistics-institute-for-undergraduate-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /ics-graduate-programs-in-statistics-and-computer-science-among-top-20-for-public-universities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /culture-of-collaboration-leads-to-cutting-edge-work-in-ai/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: uci.edu & Path: /privacy/ & Params: 
+extract_next_links is CALLED 468
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /chairs-message/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /what-is-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /contact-the-department/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /tutoring-resources/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: mds.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /grad-student-directory/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /statistics-internships-employment-opportunities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /employers-of-statistics-grad-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/b-s-in-data-science/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /minor-in-statistics/ & Params: 
+############ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /seminar-series/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: statconsulting.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: news.uci.edu & Path: /2022/03/29/ucis-graduate-programs-shine-in-u-s-news-world-report-rankings-4/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /uci-deep-learning-researchers-advance-theory-and-practice-of-data-compression/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /culture-of-collaboration-leads-to-cutting-edge-work-in-ai/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /dr-joni-ricks-oddie-applies-data-driven-lens-in-run-for-long-beach-city-council/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /applications-open-for-new-uci-summer-biostatistics-institute-for-undergraduate-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /ics-graduate-programs-in-statistics-and-computer-science-among-top-20-for-public-universities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /mds-student-ty-shao-aims-to-make-an-impact-in-healthcare/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: uci.edu & Path: /privacy/ & Params: 
+extract_next_links is CALLED 944
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /chairs-message/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /what-is-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /contact-the-department/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /tutoring-resources/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /faculty/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: recruit.ap.uci.edu & Path: /apply & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /research/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /m-s-ph-d-in-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: mds.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /grad-student-directory/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /statistics-internships-employment-opportunities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /employers-of-statistics-grad-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /slider/b-s-in-data-science/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /minor-in-statistics/ & Params: 
+############ Scheme: http & Netloc: www.ics.uci.edu & Path: /ugrad/courses/listing.php & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.stat.uci.edu & Path: /news/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /seminar-series/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: statconsulting.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: invideo.io & Path: /blog/video-marketing-statistics/ & Params: 
+@@@@@@@@@@@ Scheme: http & Netloc: www.stephanmandt.com & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.ics.uci.edu & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.nsf.gov & Path: /awardsearch/showAward & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: arxiv.org & Path: /pdf/2202.06533.pdf & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: iclr.cc & Path: / & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: openreview.net & Path: /pdf & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: yiboyang.com & Path: /about/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: en.wikipedia.org & Path: /wiki/Silicon_Valley_(TV_series) & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: web.cs.ucla.edu & Path: /~guyvdb/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /uci-news-uci-researchers-receive-state-funding-to-study-pandemic-forecasting/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /uci-news-ucis-graduate-programs-shine-in-u-s-news-world-report-rankings/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /dr-joni-ricks-oddie-applies-data-driven-lens-in-run-for-long-beach-city-council/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /applications-open-for-new-uci-summer-biostatistics-institute-for-undergraduate-students/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /ics-graduate-programs-in-statistics-and-computer-science-among-top-20-for-public-universities/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /mds-student-ty-shao-aims-to-make-an-impact-in-healthcare/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: www.stat.uci.edu & Path: /culture-of-collaboration-leads-to-cutting-edge-work-in-ai/ & Params: 
+@@@@@@@@@@@ Scheme: https & Netloc: uci.edu & Path: /privacy/ & Params: 

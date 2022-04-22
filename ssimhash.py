@@ -58,32 +58,7 @@ class simhash:
             return x
 
 if __name__ == '__main__':
-    s1 = 'This is a test string for testing'
-    hash1 = simhash(s1.split())
-
-    s2 = 'This is a test string for testing also'
-    hash2 = simhash(s2.split())
-
-    s3 = 'nai nai ge xiong cao'
-    hash3 = simhash(s3.split())
-
-    s4 = 'this is a water fire earth air the dogs are very nice and the dogs look ugly'
-    hash4 = simhash(s4.split())
-
-    s5 = 'poop peep toot'
-    hash5 = simhash(s5.split())
-    
-    s6 = 'poop peep dump'
-    hash6 = simhash(s6.split())
-
-    print("PRINT HASHES", hash1,hash2,hash3,hash4,hash5,hash6)
-
-    print(hash1.hamming_distance(hash2), " ### ", hash1.similarity(hash2))
-    if hash1.similarity(hash2) > 0.9:
-        print("THEY ARE SIMILAR")
-    print(hash1.hamming_distance(hash3), " @@@ ", hash1.similarity(hash3))
-    print("POOP SIMILARITY: ")
-    print(hash1, hash4)
-    print(hash1.hamming_distance(hash4), "AND", hash1.similarity(hash4))
-    print("@@@@@@@@")
-    print(hash5.hamming_distance(hash6), " | ", hash5.similarity(hash6))
+    s1 = ""
+    hash1 = simhash(s1)
+    print(hash1)
+    # print(hash1.hamming_distance(hash2), " ### ", hash1.similarity(hash2))
