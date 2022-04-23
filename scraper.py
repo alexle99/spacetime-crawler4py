@@ -3,7 +3,7 @@ import re
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup, SoupStrainer
 from urllib.parse import urldefrag
-from tokenizer_split import tokenize
+from tokenizer_split import tokenize, computeWordFrequencies
 import ssimhash
 """ 
 DECISIONS & DOCUMENTATION:
@@ -21,7 +21,7 @@ if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
     add current url to set
 
 """
-#previous_content = ""
+previous_content = ""
 previous_tokens = list()
 
 token_counter = 0
@@ -40,14 +40,15 @@ def scraper(url, resp):
 #         resp.raw_response.url: the url, again
 #         resp.raw_response.content: the content of the page!
 # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
-def extract_next_links(url, resp): 
+def extract_next_links(url, resp):
     global visited
-    # put url 
-    result = [url]
-    visited = defaultdict(int)
-    THRESHOLD = 3
+    global previous_content
+    result = [url] #list of next links to return
+    visited = defaultdict(int) #keeps track of visited netloc, path tuple to prevent redundancy
     previous_hash = ssimhash.simhash("")
     hash1 = previous_hash
+    THRESHOLD = 3
+
     #check if response is not 2XX (invalid)
     if resp.status not in range(200, 300): 
         return result
@@ -62,11 +63,25 @@ def extract_next_links(url, resp):
     # What is the longest page in terms of the number of words? HTML markup doesn't count
     
 
-    if (resp.raw_response):
+    if (resp.raw_response and resp.raw_response.url and resp.raw_response.content): #.url and .content for dead urls preliminary
         content = BeautifulSoup(resp.raw_response.content, "lxml").get_text()
         token_list = tokenize(content)
-        print("extract_next_links is CALLED", len(token_list))
+        token_frequency = sorted(computeWordFrequencies(token_list).items(), key=lambda x : -x[1])
+        acc = 0
+        with open('report_q3.txt', 'a') as cof:
+            for values in token_frequency:
+                if acc == 50:
+                    break
+                cof.write(values[0])
+                cof.write('\n')
+                acc += 1
 
+        # Q2 on the report
+        with open('report_q2.txt', 'a') as wf:
+            wf.write(str(len(token_list)))
+            wf.write('\n')
+
+        # simhash_list = []
 
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
             if link.has_attr('href'):
@@ -74,31 +89,42 @@ def extract_next_links(url, resp):
                 unfragmented = urldefrag(t)[0]
                 # <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
                 parsed = urlparse(unfragmented)
-                
                 # This compares the current URL to a previous URL based on their
                 # netloc & path, in which a dynamic trap will differ solely on their
                 # params...
+                # if len(simhash_list) == 30:
+                #     simhash_list = []
+
                 if parsed.netloc and parsed.path:
                     if f"{parsed.netloc}{parsed.path}" not in visited and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
                         visited[f"{parsed.netloc}{parsed.path}"] += 1
-                        print('@@@@@@@@@@@', f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
                         result.append(unfragmented)
+
+                        # Q1 on the report
+                        with open('report_q1.txt', 'a') as of:
+                            of.write(unfragmented)
+                            of.write('\n')
+
                     else:
                         hash1 = ssimhash.simhash(tokenize(content))
                         if (hash1.similarity(previous_hash) < .9) and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
                             visited[f"{parsed.netloc}{parsed.path}"] += 1
-                            print('############', f"Scheme: {parsed.scheme} & Netloc: {parsed.netloc} & Path: {parsed.path} & Params: {parsed.params}")
                             result.append(unfragmented)
-                
+                            # Q1 on the report
+                            with open('report_q1.txt', 'a') as of:
+                                of.write(unfragmented)
+                                of.write('\n')
+
+                    # ics.uci.edu
+                    # Q4 on the report
+                    if  re.match(r"^(.*ics.uci.edu)$", parsed.netloc):
+                        with open('report_q4.txt', 'a') as icsf:
+                            icsf.write(unfragmented)
+                            icsf.write('\n')
+
             previous_hash = hash1
-
+            # simhash_list.append(hash1)
     return result
-
-
-# def dynamic_trap():
-
-
-#     return
 
 def is_valid(url):
     # Decide whether to crawl this url or not. 
