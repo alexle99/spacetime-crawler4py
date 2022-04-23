@@ -108,3 +108,8 @@ venv.bak/
 
 *.full.py
 *.shelve
+
+report_q1.txt
+report_q2.txt
+report_q3.txt
+report_q4.txt
