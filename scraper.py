@@ -21,10 +21,6 @@ if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
     add current url to set
 
 """
-previous_content = ""
-previous_tokens = list()
-
-token_counter = 0
 
 def scraper(url, resp):
     links = extract_next_links(url, resp)
@@ -42,7 +38,6 @@ def scraper(url, resp):
 # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
 def extract_next_links(url, resp):
     global visited
-    global previous_content
     result = [url] #list of next links to return
     visited = defaultdict(int) #keeps track of visited netloc, path tuple to prevent redundancy
     previous_hash = ssimhash.simhash("")
@@ -75,6 +70,14 @@ def extract_next_links(url, resp):
                 cof.write(values[0])
                 cof.write('\n')
                 acc += 1
+        
+        unfragmented = urldefrag(url)[0]
+        parsed = urlparse(unfragmented)
+
+        # Q1 on the report
+        with open('report_q1.txt', 'a') as of:
+            of.write(unfragmented)
+            of.write('\n')
 
         # Q2 on the report
         with open('report_q2.txt', 'a') as wf:
@@ -82,6 +85,7 @@ def extract_next_links(url, resp):
             wf.write('\n')
 
         # simhash_list = []
+
 
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
             if link.has_attr('href'):
@@ -99,11 +103,6 @@ def extract_next_links(url, resp):
                     if f"{parsed.netloc}{parsed.path}" not in visited and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
                         visited[f"{parsed.netloc}{parsed.path}"] += 1
                         result.append(unfragmented)
-
-                        # Q1 on the report
-                        with open('report_q1.txt', 'a') as of:
-                            of.write(unfragmented)
-                            of.write('\n')
 
                     else:
                         hash1 = ssimhash.simhash(tokenize(content))
