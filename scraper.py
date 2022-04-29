@@ -78,18 +78,18 @@ def extract_next_links(url, resp):
             wf.write('\n')
 
         simhash_list = []
-
+        url_set = set()
 
         
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
             if link.has_attr('href'):
                 t = link['href']
                 unfragmented = urldefrag(t)[0]
-                # if (unfragmented[0] == "/"):
-                #     print("RELATIVE URLLLLLL")
-                #     baseUrl = link["url"]
-                #     relativeUrl = link.attr["href"]
-                #     unfragmented = urljoin(baseUrl, relativeUrl)
+                if link not in url_set:
+                    if (unfragmented[0].startswith("/")):
+                        baseUrl = url
+                        relativeUrl = link.get("href")
+                        unfragmented = urljoin(baseUrl, relativeUrl)
 
                 # <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
                 parsed = urlparse(unfragmented)
@@ -102,12 +102,15 @@ def extract_next_links(url, resp):
                         visited[f"{parsed.netloc}{parsed.path}"] += 1
                         # result.append(unfragmented)
                         resultSet.add(unfragmented)
+                        url_set.add(unfragmented)
                     else:
                         hash1 = ssimhash.simhash(tokenize(content))
                         if (hash1.similarity(previous_hash) < .95) and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
                             visited[f"{parsed.netloc}{parsed.path}"] += 1
                             # result.append(unfragmented)
                             resultSet.add(unfragmented)
+                            url_set.add(unfragmented)
+
 
                     # ics.uci.edu
                     # Q4 on the report
