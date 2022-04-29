@@ -2,7 +2,7 @@ from collections import defaultdict
 import re
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup, SoupStrainer
-from urllib.parse import urldefrag
+from urllib.parse import urldefrag, urljoin
 from tokenizer_split import tokenize, computeWordFrequencies
 import ssimhash
 """ 
@@ -25,6 +25,7 @@ if not(f"<scheme>://<netloc>/<path>" exists in all_urls_so_far):
 def scraper(url, resp):
     links = extract_next_links(url, resp)
     return [link for link in links if is_valid(link)]
+        
 
 
 # Implementation required.
@@ -38,25 +39,17 @@ def scraper(url, resp):
 # Return a list with the hyperlinks (as strings) scrapped from resp.raw_response.content
 def extract_next_links(url, resp):
     global visited
-    result = [url] #list of next links to return
+    # result = [] #list of next links to return
+    resultSet = set()
     visited = defaultdict(int) #keeps track of visited netloc, path tuple to prevent redundancy
     previous_hash = ssimhash.simhash("")
     hash1 = previous_hash
-    THRESHOLD = 3
+    THRESHOLD = 10
 
-    #check if response is not 2XX (invalid)
-    if resp.status not in range(200, 300): 
-        return result
+    #check if response is not 200 (invalid)
+    if resp.status != 200 and resp.status != 301 and resp.status != 307: 
+        return []
 
-    # check to make sure the site has good content
-    # check if site is too big
-    # check if site lacks valuable information
-    # check if site is similar to prevous url
-
-    # additional requirements
-    # keep track of how many unique urls we go through
-    # What is the longest page in terms of the number of words? HTML markup doesn't count
-    
 
     if (resp.raw_response and resp.raw_response.url and resp.raw_response.content): #.url and .content for dead urls preliminary
         content = BeautifulSoup(resp.raw_response.content, "lxml").get_text()
@@ -84,35 +77,37 @@ def extract_next_links(url, resp):
             wf.write(str(len(token_list)))
             wf.write('\n')
 
-        # simhash_list = []
+        simhash_list = []
 
 
+        
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
             if link.has_attr('href'):
                 t = link['href']
                 unfragmented = urldefrag(t)[0]
+                # if (unfragmented[0] == "/"):
+                #     print("RELATIVE URLLLLLL")
+                #     baseUrl = link["url"]
+                #     relativeUrl = link.attr["href"]
+                #     unfragmented = urljoin(baseUrl, relativeUrl)
+
                 # <scheme>://<netloc>/<path>;<params>?<query>#<fragment>
                 parsed = urlparse(unfragmented)
                 # This compares the current URL to a previous URL based on their
                 # netloc & path, in which a dynamic trap will differ solely on their
                 # params...
-                # if len(simhash_list) == 30:
-                #     simhash_list = []
 
                 if parsed.netloc and parsed.path:
                     if f"{parsed.netloc}{parsed.path}" not in visited and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
                         visited[f"{parsed.netloc}{parsed.path}"] += 1
-                        result.append(unfragmented)
-
+                        # result.append(unfragmented)
+                        resultSet.add(unfragmented)
                     else:
                         hash1 = ssimhash.simhash(tokenize(content))
-                        if (hash1.similarity(previous_hash) < .9) and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
+                        if (hash1.similarity(previous_hash) < .95) and (visited[f"{parsed.netloc}{parsed.path}"] < THRESHOLD):
                             visited[f"{parsed.netloc}{parsed.path}"] += 1
-                            result.append(unfragmented)
-                            # Q1 on the report
-                            with open('report_q1.txt', 'a') as of:
-                                of.write(unfragmented)
-                                of.write('\n')
+                            # result.append(unfragmented)
+                            resultSet.add(unfragmented)
 
                     # ics.uci.edu
                     # Q4 on the report
@@ -122,8 +117,8 @@ def extract_next_links(url, resp):
                             icsf.write('\n')
 
             previous_hash = hash1
-            # simhash_list.append(hash1)
-    return result
+            simhash_list.append(hash1)
+    return list(resultSet)
 
 def is_valid(url):
     # Decide whether to crawl this url or not. 
@@ -135,7 +130,7 @@ def is_valid(url):
 
     #print("Valid checker")
     try:
-        result = re.match(r"(.*\.ics.uci.edu/.*|.*\.cs.uci.edu/.*|.*\.informatics.uci.edu/.*|.*\.stat.uci.edu/.*|today.uci.edu/department/information_computer_sciences/.*)$", url)
+        result = re.match(r"^(.*\.ics.uci.edu/.*|.*\.cs.uci.edu/.*|.*\.informatics.uci.edu/.*|.*\.stat.uci.edu/.*|today.uci.edu/department/information_computer_sciences/.*)$", url)
         if (not result):
             return False
 
