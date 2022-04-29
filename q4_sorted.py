@@ -18,7 +18,7 @@ def subdomain_counter():
             if 'ics.uci.edu' not in subdomain:
                 d[subdomain][0] = unfragmented
                 d[subdomain][1] += 1
-        sorted_q3 = sorted(d.items(), key=lambda x : x[0][0])
+        sorted_q3 = sorted(d.items(), key=lambda x : x[1][0])
 
     with open('report_q44.txt', 'w') as wq1:
         for value in sorted_q3:
