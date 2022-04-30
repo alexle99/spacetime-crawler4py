@@ -1,12 +1,12 @@
 import urllib.request
 
+'''finds the max number from a file that has numbers that show the amount of tokens in a url'''
+
 def maxSizePage():
-    with open('/home/rtighiou/121-clone/spacetime-crawler4py/report_q2.txt', 'r') as uf:
-        count = 0
+    with open('/home/alexanvl/cs121/assignment2/spacetime-crawler4py/second-reports/report_q2.txt', 'r') as uf:
         size_set = set()
         for s in uf: 
             size_set.add(int(s.strip()))
-            #print(s)
 
     tokenMax = max(size_set)
     print(tokenMax)

@@ -1,3 +1,4 @@
+'''writes all the unique of a text file to a new text file'''
 
 def count_unique_pages():
     urlSet = set() 

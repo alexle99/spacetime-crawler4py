@@ -153,6 +153,8 @@ STOPWORDS = set([
 "d",
 ])
 
+''' returns a list of tokens that do not have stopwords'''
+
 def tokenize(content):
     global STOPWORDS
     tokens = []

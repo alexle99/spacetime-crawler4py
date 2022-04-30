@@ -56,6 +56,8 @@ def extract_next_links(url, resp):
         token_list = tokenize(content)
         token_frequency = sorted(computeWordFrequencies(token_list).items(), key=lambda x : -x[1])
         acc = 0
+
+        # Q3 on the report
         with open('report_q3.txt', 'a') as cof:
             for values in token_frequency:
                 if acc == 50:
@@ -78,7 +80,6 @@ def extract_next_links(url, resp):
             wf.write('\n')
 
         simhash_list = []
-
 
         
         for link in BeautifulSoup(resp.raw_response.content, parse_only=SoupStrainer('a'), features="html.parser"):
