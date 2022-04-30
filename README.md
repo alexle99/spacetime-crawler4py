@@ -1,3 +1,11 @@
+NAMES AND IDS:
+William Mejia, 18183195
+Alexander Le, 22558269
+Cedric Kwong, 11234388
+Rayan Tighiouart, 88255446
+
+
+
 ABOUT
 -------------------------
 This is the base implementation of a full crawler that uses a spacetime
